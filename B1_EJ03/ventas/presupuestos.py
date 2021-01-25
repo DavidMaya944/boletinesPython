@@ -48,9 +48,6 @@ class ModeloDePresupuesto:
     def cliente(self, cliente):
         self.__cliente = cliente;
 
-    def set_cliente(self): 
-        self.empresa = input('\tEmpresa: ')
-        self.cliente = input('\tNombre del cliente: ') 
         
     # Setear los datos basicos del presupuesto
     @property
@@ -84,13 +81,6 @@ class ModeloDePresupuesto:
     @vencimiento.setter
     def vencimiento(self, vencimiento):
         self.__vencimiento = vencimiento;
-
-    def set_datos_basicos(self): 
-        self.fecha = input('\tFecha: ') 
-        self.servicio = input('\tDescripción del servicio: ')
-        importe = input('\tImporte bruto: €')         
-        self.importe = float(importe)         
-        self.vencimiento = input('\tFecha de caducidad: ') 
         
     # Calcular IVA
    
@@ -131,4 +121,32 @@ class ModeloDePresupuesto:
         txt += '\n\tMONTO TOTAL: €%0.2f\n' % (self.neto)         
         txt += self.divline+'\n'
         print(txt)     
+
+
+class Cliente:
+    def __init__(self, nombre, apellido):
+        self.__nombre = nombre;
+        self.__apellido = apellido;
+    
+    @property
+    def nombre(self):
+        return self.__nombre;
+    
+    @nombre.setter
+    def nombre(self, nombre):
+        self.__nombre = nombre;
+
+    @property
+    def apellido(self):
+        return self.__apellido;
+
+    @apellido.setter
+    def apellido(self, apellido):
+        self.__apellido = apellido;
+
+    def __str__(self):
+        sResultado = "";
+        sResultado += "nombre: " + self.nombre();
+        sResultado += "apellido: " + self.apellido();
+
         

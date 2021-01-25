@@ -47,10 +47,6 @@ class ModeloDePresupuesto:
     @cliente.setter
     def cliente(self, cliente):
         self.__cliente = cliente;
-
-    def set_cliente(self): 
-        self.empresa = input('\tEmpresa: ')
-        self.cliente = input('\tNombre del cliente: ') 
         
     # Setear los datos basicos del presupuesto
     @property
@@ -84,13 +80,6 @@ class ModeloDePresupuesto:
     @vencimiento.setter
     def vencimiento(self, vencimiento):
         self.__vencimiento = vencimiento;
-
-    def set_datos_basicos(self): 
-        self.fecha = input('\tFecha: ') 
-        self.servicio = input('\tDescripción del servicio: ')
-        importe = input('\tImporte bruto: €')         
-        self.importe = float(importe)         
-        self.vencimiento = input('\tFecha de caducidad: ') 
         
     # Calcular IVA
    
