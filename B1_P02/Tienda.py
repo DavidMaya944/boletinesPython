@@ -1,7 +1,7 @@
-from B1_P01.Persona import Persona
-from B1_P01.Pedido import Pedido
-from B1_P01.Cliente import Cliente
-from B1_P01.Vendedor import Vendedor
+from B1_P02.Persona import Persona
+from B1_P02.Pedido import Pedido
+from B1_P02.Cliente import Cliente
+from B1_P02.Vendedor import Vendedor
 import sqlite3
 
 class Tienda:
@@ -23,12 +23,12 @@ class Tienda:
         self.cursor.execute("CREATE TABLE IF NOT EXISTS pedido(dni_cliente text PRIMARY KEY, dni_vendedor text PRIMARY KEY, fecha text, total real)")
         self.conn.commit()
 
-
-
     def altaCliente(self, cliente):
         bExito = False
         if type(cliente) == Cliente:
-            self.__personas.append(cliente)
+            self.cursor.execute("INSERT INTO cliente VALUES(" + cliente.NIF + ", " + cliente.nombre + ", "
+                                + cliente.apellidos + ", " + cliente.telefono + ", " + cliente.direccion)
+            self.conn.commit()
             bExito = True
 
         return bExito
@@ -36,7 +36,9 @@ class Tienda:
     def altaVendedor(self, vendedor):
         bExito = False
         if type(vendedor) == Vendedor:
-            self.__personas.append(vendedor)
+            self.cursor.execute("INSERT INTO vendedor VALUES(" + vendedor.NIF + ", " + vendedor.nombre + ", "
+                                + vendedor.apellidos + ", " + vendedor.usuario + ", " + vendedor.password)
+            self.conn.commit()
             bExito = True
 
         return bExito
@@ -44,62 +46,43 @@ class Tienda:
     def altaPedido(self, pedido):
         bExito = False
         if type(pedido) == Pedido:
-            self.__pedidos.append(pedido)
+            self.cursor.execute("INSERT INTO pedido VALUES(" + pedido.oCliente + ", " + pedido.oVendedor + ", "
+                                +  + ", " + pedido.fechaPedido + ", " + pedido.total)
+            self.conn.commit()
             bExito = True
 
         return bExito
 
     def numClientes(self):
-        suma = 0
-        for x in self.personas:
-            if isinstance(x, Cliente):
-                suma += 1
-
+        suma = self.cursor.execute('SELECT COUNT(*) FROM cliente')
         return suma
 
     def numVendedores(self):
-        suma = 0
-        for x in self.personas:
-            if isinstance(x, Vendedor):
-                suma += 1
-
+        suma = self.cursor.execute('SELECT COUNT(*) FROM vendedor')
         return suma
 
     def numPedidos(self):
-        suma = 0
-        for x in self.pedidos:
-            if isinstance(x, Pedido):
-                suma += 1
-
+        suma = self.cursor.execute('SELECT COUNT(*) FROM pedido')
         return suma
 
     def importeTotalPedidos(self):
         total = float(0)
-        for x in self.pedidos:
-                total += float(x.total)
-
+        self.cursor.execute('SELECT SUM(total) FROM pedido')
+        for total in self.cursor:
+            print(total)
         return total
 
     def listadoClientes(self):
-        sResultado = ""
-        for x in self.personas:
-            if type(x) == Cliente:
-                sResultado += str(x)
-
+        self.cursor.execute('SELECT * FROM cliente')
+        sResultado = self.cursor.fetchall()
         return sResultado
 
     def listadoVendedores(self):
-        sResultado = ""
-        for x in self.personas:
-            if type(x) == Vendedor:
-                sResultado += str(x)
-
+        self.cursor.execute('SELECT * FROM vendedor')
+        sResultado = self.cursor.fetchall()
         return sResultado
 
     def listadoPedidosFecha(self, fechaPedido):
-        sResultado = ""
-        for x in self.pedidos:
-            if type(x) == Pedido:
-                sResultado += str(x)
-
+        self.cursor.execute('SELECT * FROM pedido WHERE fecha = ' + fechaPedido)
+        sResultado = self.cursor.fetchall()
         return sResultado
