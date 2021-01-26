@@ -12,7 +12,7 @@ class Tienda:
         self.cursor = self.conn.cursor()
 
     def createTableCliente(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS cliente(dni text PRIMARY KEY, nombre text, apellidos text, telefono integer, direccion text)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS cliente(dni text PRIMARY KEY, nombre text, apellidos text, telefono integer, direccion text, UNIQUE(dni))")
         self.conn.commit()
 
     def createTableVendedor(self):
