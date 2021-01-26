@@ -30,7 +30,7 @@ class Vendedor(Persona):
         sResultado += "\nNIF: " + super().NIF + "\n"
         sResultado += "nombre: + " + super().nombre + "\n"
         sResultado += "apellidos: " + super().apellidos + "\n"
-        sResultado += "usuario: " + self.usuario + "\n"
+        sResultado += "usuario: " + str(self.usuario) + "\n"
         sResultado += "password: " + self.password + "\n"
 
         return sResultado

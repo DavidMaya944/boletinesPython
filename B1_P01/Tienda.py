@@ -28,26 +28,26 @@ class Tienda:
     def pedidos(self, pedidos):
         self.__pedidos = pedidos
 
-    def altaCliente(self, Cliente):
+    def altaCliente(self, cliente):
         bExito = False
-        if type(Cliente) == Cliente:
-            self.__personas.append(Cliente)
+        if type(cliente) == Cliente:
+            self.__personas.append(cliente)
             bExito = True
 
         return bExito
 
-    def altaVendedor(self, Vendedor):
+    def altaVendedor(self, vendedor):
         bExito = False
-        if type(Vendedor) == Vendedor:
-            self.__personas.append(Vendedor)
+        if type(vendedor) == Vendedor:
+            self.__personas.append(vendedor)
             bExito = True
 
         return bExito
 
-    def altaPedido(self, Pedido):
+    def altaPedido(self, pedido):
         bExito = False
-        if type(Pedido) == Pedido:
-            self.__pedidos.append(Pedido)
+        if type(pedido) == Pedido:
+            self.__pedidos.append(pedido)
             bExito = True
 
         return bExito
@@ -55,16 +55,15 @@ class Tienda:
     def numClientes(self):
         suma = 0
         for x in self.personas:
-            if type(Persona) == Cliente:
-                suma += x[0]
+            if type(x) == Cliente:
+                suma += str(x)
 
         return suma
 
     def numVendedores(self):
         suma = 0
         for x in self.personas:
-            if type(Persona) == Vendedor:
-                suma += x[0]
+            suma += x[0]
 
         return suma
 
@@ -85,23 +84,23 @@ class Tienda:
     def listadoClientes(self):
         sResultado = ""
         for x in self.personas:
-            if type(Cliente) == Cliente:
-                sResultado = x[0]
+            if type(x) == Cliente:
+                sResultado += str(x)
 
         return sResultado
 
     def listadoVendedores(self):
         sResultado = ""
         for x in self.personas:
-            if type(Vendedor) == Vendedor:
-                sResultado = x[0]
+            if type(x) == Vendedor:
+                sResultado += str(x)
 
         return sResultado
 
     def listadoPedidosFecha(self, fechaPedido):
         sResultado = ""
         for x in self.pedidos:
-            if type(Pedido.fechaPedido) == fechaPedido:
-                sResultado = x[0]
+            if type(x) == Pedido:
+                sResultado += str(x)
 
         return sResultado
