@@ -13,6 +13,7 @@ v = Vendedor("1245789W", "Romano", "Aspas", 645200314, "Calle de al lao, 456")
 p = Pedido(c, v, "12/02/2019", 5000)
 p1 = Pedido(c, v, "20/03/2015", 300)
 p2 = Pedido(c, v, "05/02/2017", 7000)
+
 personas = []
 pedidos = []
 
@@ -42,3 +43,5 @@ print(t.listadoPedidosFecha("12/02/2019"))
 print("El numero de clientes es: " + str(t.numClientes()))
 print("El numero de vendedores es: " + str(t.numVendedores()))
 print("El numero de pedidos es: " + str(t.numPedidos()))
+
+print("Importe total: " + str(t.importeTotalPedidos()))

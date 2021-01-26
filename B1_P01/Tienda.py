@@ -77,9 +77,9 @@ class Tienda:
         return suma
 
     def importeTotalPedidos(self):
-        total = 0
+        total = float(0)
         for x in self.pedidos:
-            total += x[0]
+                total += float(x.total)
 
         return total
 
