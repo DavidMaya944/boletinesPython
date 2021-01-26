@@ -3,7 +3,7 @@ print("Modelos de presupuestos")
 class ModeloDePresupuesto: 
 
     # Metodo constructor   
-    def __init__(self, empresa, cliente, importe, fecha, servicio, monto_iva, neto):         
+    def __init__(self, empresa, cliente, importe, fecha, servicio):
         print(self.divline) 
         print("\tGENERACIÓN DEL PRESUPUESTO")
         print(self.divline)
@@ -12,8 +12,9 @@ class ModeloDePresupuesto:
         self.__importe = importe
         self.__fecha = fecha
         self.__servicio = servicio
-        self.__monto_iva = monto_iva
-        self.__neto = neto
+        self.calcular_iva()
+        self.calcular_neto()
+
     # Datos comerciales     
     titulo = "PRESUPUESTO"
     encabezado_nombre = "Eugenia Bahit"
@@ -76,10 +77,11 @@ class ModeloDePresupuesto:
     @vencimiento.setter
     def vencimiento(self, vencimiento):
         self.__vencimiento = vencimiento
-        
+
+
     # Calcular IVA
-    def calcular_iva(self):         
-        self.__monto_iva = self.importe*self.IVA/100
+    def calcular_iva(self):
+        self.__monto_iva = float(self.__importe)*float(self.IVA/100)
         
     # Calcula el monto total del presupuesto   
     @property
@@ -92,7 +94,7 @@ class ModeloDePresupuesto:
 
 
     def calcular_neto( self):         
-        self.neto = self.importe+self.__monto_iva   
+        self.__neto = float(self.__importe)+float(self.__monto_iva)
         
     # Montar el presupuesto     
     def montar_presupuesto(self):
@@ -110,9 +112,9 @@ class ModeloDePresupuesto:
         txt += self.divline+"\n\n"
         txt += '\tDetalle del servicio:\n'
         txt += '\t'+self.servicio+'\n\n'
-        txt += '\tImporte: €%0.2f | IVA: €%0.2f\n'% (self.importe, self.__monto_iva)         
+        txt += '\tImporte: €%0.2f | IVA: €%0.2f\n'% (self.__importe, self.__monto_iva)
         txt += '-'*80
-        txt += '\n\tMONTO TOTAL: €%0.2f\n' % (self.neto)         
+        txt += '\n\tMONTO TOTAL: €%0.2f\n' % (self.__neto)
         txt += self.divline+'\n'
         print(txt)     
 
