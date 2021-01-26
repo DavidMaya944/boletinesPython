@@ -18,32 +18,35 @@ class Tienda:
     
     @personas.setter
     def personas(self, personas):
-        self.__personas = Persona(personas)
+        self.__personas = personas
     
     @property
-    def pedido(self):
-        return self.__pedido
+    def pedidos(self):
+        return self.__pedidos
     
-    @pedido.setter
-    def pedido(self, pedido):
-        self.__pedido = Pedido(pedido)
+    @pedidos.setter
+    def pedidos(self, pedidos):
+        self.__pedidos = pedidos
 
     def altaCliente(self, Cliente):
-        if(type(Cliente) == Cliente):
+        bExito = False
+        if type(Cliente) == Cliente:
             self.__personas.append(Cliente)
             bExito = True
 
         return bExito
 
     def altaVendedor(self, Vendedor):
-        if(type(Vendedor) == Vendedor):
+        bExito = False
+        if type(Vendedor) == Vendedor:
             self.__personas.append(Vendedor)
             bExito = True
 
         return bExito
 
     def altaPedido(self, Pedido):
-        if(type(Pedido) == Pedido):
+        bExito = False
+        if type(Pedido) == Pedido:
             self.__pedidos.append(Pedido)
             bExito = True
 
@@ -52,7 +55,7 @@ class Tienda:
     def numClientes(self):
         suma = 0
         for x in self.personas:
-            if(type(Cliente)):
+            if type(Persona) == Cliente:
                 suma += x[0]
 
         return suma
@@ -60,7 +63,7 @@ class Tienda:
     def numVendedores(self):
         suma = 0
         for x in self.personas:
-            if(type(Vendedor)):
+            if type(Persona) == Vendedor:
                 suma += x[0]
 
         return suma
@@ -68,9 +71,37 @@ class Tienda:
     def numPedidos(self):
         suma = 0
         for x in self.pedidos:
-            if(type(Pedido)):
-                suma += x[0]
+            suma += x[0]
 
         return suma
 
-    
+    def importeTotalPedidos(self):
+        total = 0
+        for x in self.pedidos:
+            total += x[0]
+
+        return total
+
+    def listadoClientes(self):
+        sResultado = ""
+        for x in self.personas:
+            if type(Cliente) == Cliente:
+                sResultado = x[0]
+
+        return sResultado
+
+    def listadoVendedores(self):
+        sResultado = ""
+        for x in self.personas:
+            if type(Vendedor) == Vendedor:
+                sResultado = x[0]
+
+        return sResultado
+
+    def listadoPedidosFecha(self, fechaPedido):
+        sResultado = ""
+        for x in self.pedidos:
+            if type(Pedido.fechaPedido) == fechaPedido:
+                sResultado = x[0]
+
+        return sResultado

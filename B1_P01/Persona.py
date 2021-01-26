@@ -1,8 +1,8 @@
 class Persona:
     def __init__(self, NIF, nombre, apellidos):
-        self.NIF(NIF)
-        self.nombre(nombre)
-        self.apellidos(apellidos)
+        self.__NIF = NIF
+        self.__nombre = nombre
+        self.__apellidos = apellidos
 
     @property
     def NIF(self):
@@ -30,7 +30,9 @@ class Persona:
 
     def __str__(self):
         sResultado = ""
-        sResultado += "NIF: " + self.NIF()
-        sResultado += "nombre: " + self.nombre()
-        sResultado += "apellidos: " + self.apellidos() 
+        sResultado += "NIF: " + self.NIF + "\n"
+        sResultado += "nombre: " + self.nombre + "\n"
+        sResultado += "apellidos: " + self.apellidos + "\n"
+
+        return sResultado
 

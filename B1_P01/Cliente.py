@@ -3,9 +3,9 @@ from B1_P01.Persona import Persona
 class Cliente(Persona):
 
     def __init__(self, NIF, nombre, apellidos, telefono, direccion):
-        super.__init__(self, NIF, nombre, apellidos)
-        self.telefono(telefono)
-        self.direccion(direccion)
+        super().__init__(NIF, nombre, apellidos)
+        self.__telefono = telefono
+        self.__direccion = direccion
 
     @property
     def telefono(self):
@@ -13,7 +13,7 @@ class Cliente(Persona):
 
     @telefono.setter
     def telefono(self, telefono):
-        self.__telefono = int (telefono)
+        self.__telefono = int(telefono)
 
     @property
     def direccion(self):
@@ -25,6 +25,12 @@ class Cliente(Persona):
 
     def __str__(self):        
         sResultado = ""
-        sResultado += "CLIENTE: " + super.__str__
-        sResultado += "telefono: " + self.telefono()
-        sResultado += "direccion: " + self.direccion() 
+        sResultado += "CLIENTE: \n"
+        sResultado += "-"*80
+        sResultado += "\nNIF: " + super().NIF + "\n"
+        sResultado += "nombre: " + super().nombre + "\n"
+        sResultado += "apellidos: " + super().apellidos + "\n"
+        sResultado += "telefono: " + str(self.telefono) + "\n"
+        sResultado += "direccion: " + self.direccion + "\n"
+
+        return sResultado
