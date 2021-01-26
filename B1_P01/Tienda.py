@@ -55,22 +55,24 @@ class Tienda:
     def numClientes(self):
         suma = 0
         for x in self.personas:
-            if type(x) == Cliente:
-                suma += str(x)
+            if isinstance(x, Cliente):
+                suma += 1
 
         return suma
 
     def numVendedores(self):
         suma = 0
         for x in self.personas:
-            suma += x[0]
+            if isinstance(x, Vendedor):
+                suma += 1
 
         return suma
 
     def numPedidos(self):
         suma = 0
         for x in self.pedidos:
-            suma += x[0]
+            if isinstance(x, Pedido):
+                suma += 1
 
         return suma
 

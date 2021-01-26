@@ -29,7 +29,7 @@ t.altaPedido(p)
 t.altaPedido(p1)
 t.altaPedido(p2)
 
-"""print(t.listadoClientes())
+print(t.listadoClientes())
 
 print("-"*80)
 
@@ -37,6 +37,8 @@ print(t.listadoVendedores())
 
 print("-"*80)
 
-print(t.listadoPedidosFecha("12/02/2019"))"""
+print(t.listadoPedidosFecha("12/02/2019"))
 
-print("El numero de clientes es: " + t.numClientes())
+print("El numero de clientes es: " + str(t.numClientes()))
+print("El numero de vendedores es: " + str(t.numVendedores()))
+print("El numero de pedidos es: " + str(t.numPedidos()))

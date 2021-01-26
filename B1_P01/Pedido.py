@@ -42,8 +42,8 @@ class Pedido:
         sResultado = ""
         sResultado += "PEDIDO:\n"
         sResultado += "-"*80
-        sResultado += "\nCliente: " + str(self.oCliente) + "\n"
-        sResultado += "Vendedor: " + str(self.oVendedor) + "\n"
+        sResultado += "\n" + str(self.oCliente) + "\n"
+        sResultado += str(self.oVendedor) + "\n"
         sResultado += "Fecha: " + self.fechaPedido + "\n"
         sResultado += "Total: " + str(self.total) + "\n"
 
