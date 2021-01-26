@@ -1,9 +1,9 @@
 class Pedido:
     def __init__(self, oCliente, oVendedor, fechaPedido, total):
-        self.__oCliente(oCliente)
-        self.__oVendedor(oVendedor)
-        self.__fechaPedido(fechaPedido)
-        self.__total(total)
+        self.oCliente(oCliente)
+        self.oVendedor(oVendedor)
+        self.fechaPedido(fechaPedido)
+        self.total(total)
 
 @property
 def oCliente(self):
