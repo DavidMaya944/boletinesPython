@@ -20,14 +20,13 @@ class Tienda:
         self.conn.commit()
 
     def crearTablaPedido(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS pedido(dni_cliente text PRIMARY KEY, dni_vendedor text PRIMARY KEY, fecha text, total real)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS pedido(id_pedido integer AUTO_INCREMENT PRIMARY KEY, dni_cliente text, dni_vendedor text, fecha text, total real)")
         self.conn.commit()
 
     def altaCliente(self, cliente):
         bExito = False
         if type(cliente) == Cliente:
-            self.cursor.execute("INSERT INTO cliente VALUES(" + cliente.NIF + ", " + cliente.nombre + ", "
-                                + cliente.apellidos + ", " + cliente.telefono + ", " + cliente.direccion)
+            self.cursor.execute("INSERT INTO cliente (dni, nombre, apellidos, telefono, direccion) VALUES('" + cliente.NIF + "', '" + cliente.nombre + "', '" + cliente.apellidos + "', '" + str(cliente.telefono) + "', '" + cliente.direccion + "')")
             self.conn.commit()
             bExito = True
 
@@ -36,7 +35,7 @@ class Tienda:
     def altaVendedor(self, vendedor):
         bExito = False
         if type(vendedor) == Vendedor:
-            self.cursor.execute("INSERT INTO vendedor VALUES(" + vendedor.NIF + ", " + vendedor.nombre + ", "
+            self.cursor.execute("INSERT INTO vendedor (dni, nombre, apellidos, usuario, password) VALUES(" + vendedor.NIF + ", " + vendedor.nombre + ", "
                                 + vendedor.apellidos + ", " + vendedor.usuario + ", " + vendedor.password)
             self.conn.commit()
             bExito = True
@@ -46,8 +45,8 @@ class Tienda:
     def altaPedido(self, pedido):
         bExito = False
         if type(pedido) == Pedido:
-            self.cursor.execute("INSERT INTO pedido VALUES(" + pedido.oCliente + ", " + pedido.oVendedor + ", "
-                                +  + ", " + pedido.fechaPedido + ", " + pedido.total)
+            self.cursor.execute("INSERT INTO pedido (dni_cliente, dni_vendedor, fechaPedido, total) VALUES(" + pedido.oCliente + ", " + pedido.oVendedor + ", "
+                                + pedido.fechaPedido + ", " + pedido.total)
             self.conn.commit()
             bExito = True
 

@@ -13,10 +13,10 @@ conn.commit()
 
 
 # Ejecutar sentencia de inserccion
-#cursor.execute("INSERT INTO employees VALUES(2, 'John', 700)")
-#cursor.execute("INSERT INTO employees VALUES(3, 'Mike', 800)")
-#cursor.execute("INSERT INTO employees VALUES(4, 'Denzel', 650)")
-#conn.commit()
+cursor.execute("INSERT INTO employees VALUES(2, 'John', 700)")
+cursor.execute("INSERT INTO employees VALUES(3, 'Mike', 800)")
+cursor.execute("INSERT INTO employees VALUES(4, 'Denzel', 650)")
+conn.commit()
 
 # Recorriendo las filas devueltas por fetchall
 cursor.execute('SELECT id, name FROM employees')
