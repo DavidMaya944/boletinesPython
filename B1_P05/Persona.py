@@ -32,7 +32,7 @@ class Persona:
 
     def __str__(self):
         sResultado = ""
-        sResultado += "Nombre: " + self.nombre
-        sResultado += "Apellido: " + self.apellido
-        sResultado += "telefono: " + self.telefono
+        sResultado += "\nNombre: " + self.nombre + "\n"
+        sResultado += "Apellido: " + self.apellido + "\n"
+        sResultado += "telefono: " + self.telefono + "\n"
         return sResultado

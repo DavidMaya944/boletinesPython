@@ -1,7 +1,10 @@
 from B1_P05.Agenda import Agenda
+from B1_P05.Persona import Persona
 
-a = Agenda("David", "Maya", "675123456")
+agenda = []
+a = Agenda(agenda)
+p = Persona("David", "Maya", "646000204")
 
-a.add()
+a.guardarEnTXT(p)
 
-a.listar()
+a.leertxt()
