@@ -24,7 +24,7 @@ t.createTableVendedor()
 
 t.crearTablaPedido()
 
-if t.altaCliente(c):
+"""if t.altaCliente(c):
     print("Se ha insertado el PRIMER CLIENTE con exito")
 else:
     print("ERROR: PRIMER CLIENTE fallido")
@@ -60,11 +60,11 @@ else:
     print("ERROR: EL PRIMER PEDIDO fallido")
 
 t.altaCliente(c3)
-t.altaPedido(p3)
+t.altaPedido(p3)"""
 
 print(t.listadoClientes())
 
-print("-"*80)
+"""print("-"*80)
 
 print(t.listadoVendedores())
 
@@ -76,4 +76,4 @@ print("El numero de clientes es: " + str(t.numClientes()))
 print("El numero de vendedores es: " + str(t.numVendedores()))
 print("El numero de pedidos es: " + str(t.numPedidos()))
 
-print("Importe total: " + str(t.importeTotalPedidos()))
+print("Importe total: " + str(t.importeTotalPedidos()))"""

@@ -2,7 +2,7 @@ from B1_P01.Persona import Persona
 
 class Cliente(Persona):
 
-    def __init__(self, NIF, nombre, apellidos, telefono, direccion):
+    def __init__(self, oPersona, telefono, direccion, NIF, nombre, apellidos):
         super().__init__(NIF, nombre, apellidos)
         self.__telefono = telefono
         self.__direccion = direccion

@@ -11,6 +11,10 @@ class Tienda:
         self.conn = sqlite3.connect('mydatabase.db')
         self.cursor = self.conn.cursor()
 
+    def createTablePersona(self):
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS persona(dni text PRIMARY KEY, nombre text, apellidos text)")
+        self.conn.commit()
+
     def createTableCliente(self):
         self.cursor.execute("CREATE TABLE IF NOT EXISTS cliente(dni text PRIMARY KEY, nombre text, apellidos text, telefono integer, direccion text, UNIQUE(dni))")
         self.conn.commit()
@@ -22,6 +26,15 @@ class Tienda:
     def crearTablaPedido(self):
         self.cursor.execute("CREATE TABLE IF NOT EXISTS pedido(id_pedido integer AUTO_INCREMENT PRIMARY KEY, dni_cliente text, dni_vendedor text, fecha text, total real)")
         self.conn.commit()
+
+    def altaPersona(self, persona):
+        bExito = False
+        if type(persona) == Persona:
+            self.cursor.execute("INSERT INTO persona (dni, nombre, apellidos) VALUES('" + persona.NIF + "', '" + persona.nombre + "', '" + persona.apellidos + "')")
+            self.conn.commit()
+            bExito = True
+
+        return bExito
 
     def altaCliente(self, cliente):
         bExito = False
