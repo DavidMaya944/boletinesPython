@@ -14,4 +14,4 @@ mPm = ModeloDePresupuestoMultiple("MEDAC", c, 30, "24/11/2019", servicios)
 
 mPm.addServicio("cobrar")
 
-mPm.searchServicio()
+mPm.listarServicio()

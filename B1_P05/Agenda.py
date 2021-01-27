@@ -1,4 +1,6 @@
+
 from B1_P05.Persona import Persona
+
 
 class Agenda:
 
@@ -7,34 +9,42 @@ class Agenda:
     def __init__(self, agenda):
         self.agenda = agenda
 
-    def guardarEnTXT(self, oPersona):
-        archivo = open('agenda.txt', 'a')
-        archivo.write("\nCONTACTO: " + str(oPersona))
-        archivo.close()
-        print("Contacto anadido")
 
-    def leertxt(self):
-        archivo = "agenda.txt"
-        with open(archivo, "r") as archivo:
-            contenido = archivo.read()
-            print(contenido)
+    def meterEnArray(self, oPersona):
+        for x in self.agenda:
+            if type(oPersona) == Persona:
+                self.agenda.append(oPersona)
 
+    def buscarEnAgenda(self, name, lastname):
+        resultado = None
+        for i in self.agenda:
+            if (i.nombre == name and i.apellido == lastname):
+                resultado = i
+        return resultado
 
-    def buscar(self, nombre, apellido):
+    def cargarFichero(self):
         f = open("agenda.txt", "r")
-        lineas = f.readlines()
-        if Persona.nombre.__eq__(nombre) and Persona.apellido.__eq__(apellido):
-            telefono = str(Persona.telefono)
-            print(telefono)
+        linea = f.readline()
+        while linea != "":
+            nombre = f.readline()
+            apellido = f.readline()
+            telefono = f.readline()
+            nombre = nombre[:-1]
+            apellido = apellido[:-1]
+            telefono = telefono[:-1]
+            self.agenda.append(nombre, apellido, telefono)
+            linea = f.readline()
         f.close()
+        return self.agenda
 
-    def borrar(self, nombre, apellido):
-        file_input = "agenda.txt"
-        file_output = "agenda.txt"
-        f = open(file_input, "r")
-        lineas = f.readlines()
-        if Persona.nombre.__eq__(nombre) and Persona.apellido.__eq__(apellido):
-            f = open(file_output, "w")
-            "agenda.txt".write(" ")
-            print("Registro borrado")
-        f.close()
+    def imprimirArray(self):
+        resultado = ""
+        for i in self.agenda:
+            resultado += (i.str())
+        return resultado
+
+    def meterEnFichero(self):
+        f = open("agenda.txt", "w")
+        for i in self.agenda:
+            f.write(i.str())
+        f.close

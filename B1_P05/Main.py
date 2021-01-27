@@ -6,12 +6,14 @@ a = Agenda(agenda)
 
 nombre = input("Nombre: " )
 apellido = input("Apellido: " )
-p = Persona(nombre, apellido, "646000204")
+telefono = input("Telefono: ")
 
-#a.guardarEnTXT(p)
+p = Persona(nombre, apellido, telefono)
 
-a.borrar(nombre, apellido)
+a.meterEnArray(p)
 
-print(a.buscar(nombre, apellido))
+a.meterEnFichero()
 
-#a.leertxt()
+a.cargarFichero()
+
+a.imprimirArray()
