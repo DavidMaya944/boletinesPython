@@ -1,6 +1,5 @@
 from B1_P05.Persona import Persona
 
-
 class Agenda:
 
     __agenda = []
@@ -21,28 +20,21 @@ class Agenda:
             print(contenido)
 
 
-    def addPersona(self, oPersona):
-        exito = False
-        if type(oPersona) == Persona:
-            self.__agenda.append(oPersona)
-            exito = True
+    def buscar(self, nombre, apellido):
+        f = open("agenda.txt", "r")
+        lineas = f.readlines()
+        if Persona.nombre.__eq__(nombre) and Persona.apellido.__eq__(apellido):
+            telefono = str(Persona.telefono)
+            print(telefono)
+        f.close()
 
-        return exito
-
-    def deletePersona(self, oPersona):
-        if type(oPersona) == Persona:
-            self.__agenda.remove(oPersona)
-
-
-    def updatePersona(self, oPersona):
-         if type(oPersona) == Persona:
-            self.__agenda.update(oPersona)
-
-
-    def listarPersona(self):
-        sResultado = ""
-        for x in self.agenda:
-            if type(x) == Persona:
-                sResultado += str(x)
-
-        return sResultado
+    def borrar(self, nombre, apellido):
+        file_input = "agenda.txt"
+        file_output = "agenda.txt"
+        f = open(file_input, "r")
+        lineas = f.readlines()
+        if Persona.nombre.__eq__(nombre) and Persona.apellido.__eq__(apellido):
+            f = open(file_output, "w")
+            "agenda.txt".write(" ")
+            print("Registro borrado")
+        f.close()
